@@ -51,7 +51,7 @@ module.exports.run = async (client, message, args) => {
 																			.addField("SD:", `${SD}`)
 																			.addField("AD:", `${AD}`)
 																			.addField("E&T:", `${EAT}`)
-																			.addField("DOR:", `${AD}`)
+																			.addField("DOR:", `${DOR}`)
 																			.addField("EC:", `${EC}`)
 																			.addField("ER:", `${ER}`)
 																			.addField("MD:", `${MD}`)
