@@ -19,10 +19,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `V${version}`, type: 0} });
-	setInterval(() => {
-		client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
-	}, 1);
+	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
@@ -37,6 +34,15 @@ client.on("message", message => {
   try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
+	const embed = new Discord.RichEmbed()
+	.setAuthor("Command Logger")
+	.setColor(0x00AE86)
+	.addField("User:", message.author)
+	.addField("Command:", message)
+	.addField("Ping:", `${Date.now() - message.createdTimestamp}ms`)
+	.addField("Created on:", `11st December 2018`)
+	.setFooter(`Version: ${version}`);
+	client.channels.get(`${logs}`).send({embed}));
   } catch (err) {
     console.error(err);
   }
