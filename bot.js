@@ -38,8 +38,8 @@ setInterval(() => {
 }, 280000);
 
 client.on("ready", () => {
+	setInterval(client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} }), delay)
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
