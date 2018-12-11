@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "kick",
-    description: "kicks a user",
-    usage: "kick [user]"
+    name: "help",
+    description: "Return commands",
+    usage: "help"
 }
