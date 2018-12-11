@@ -11,12 +11,18 @@ const pass = process.env.PASSWORD;
 const version = process.env.VERSION;
 const logs = "521873059204825172";
 
-let totalSeconds = (client.uptime / 1000);
-let hours = Math.floor(totalSeconds / 3600);
-totalSeconds %= 3600;
-let minutes = Math.floor(totalSeconds / 60);
-let seconds = totalSeconds % 60;
-let uptime = `${hours}:${minutes}:${seconds}`;
+var time = process.uptime();
+
+function dhm(ms) {
+days = Math.floor(ms / (24 * 60 * 60 * 1000));
+daysms = ms % (24 * 60 * 60 * 1000);
+hours = Math.floor((daysms) / (60 * 60 * 1000));
+hoursms = ms % (60 * 60 * 1000);
+minutes = Math.floor((hoursms) / (60 * 1000));
+minutesms = ms % (60 * 1000);
+sec = Math.floor((minutesms) / (1000));
+return days + ":" + hours + ":" + minutes + ":" + sec;
+}
 
 app.get("/", (request, response) => {
   console.log("Ping received!");
@@ -31,7 +37,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
+	client.user.setPresence({ game: { name: `dhm(time) | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
