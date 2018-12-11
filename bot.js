@@ -7,7 +7,6 @@ const app = express();
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
-const pass = process.env.PASSWORD;
 const version = process.env.VERSION;
 const logs = "521873059204825172";
 
