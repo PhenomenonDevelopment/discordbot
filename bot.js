@@ -40,11 +40,10 @@ setInterval(() => {
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
 	client.user.setPresence({ game: { name: `V${version}`, type: 0} });
+	setInterval(() => {
+		client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
+	}, 1);
 });
-
-setInterval(() => {
-  client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
-}, 1);
 
 client.on("message", message => {
   if (message.author.bot) return;
