@@ -5,7 +5,6 @@ var groupId = '3818655'
 const version = process.env.VERSION;
 
 module.exports.run = async (client, message, args) => {
-	if (message.author.id !== '501649887411175435') return
 	var args = message.content.split(/[ ]+/)
 	var username = args[1]
 	if (username){
@@ -24,8 +23,6 @@ module.exports.run = async (client, message, args) => {
 								.then(function(SOC){
 									roblox.getRankNameInGroup('3819023', id)
 									.then(function(medic){
-										roblox.getRankNameInGroup('3547119', id)
-										.then(function(crto){
 										const embed = new Discord.RichEmbed()
 										.setColor(0x00AE86)
 										.addField("Username:", `${username}`)
@@ -38,7 +35,6 @@ module.exports.run = async (client, message, args) => {
 										.addField("Profile:", `http://www.roblox.com/users/${id}`)
 										.setFooter(`Version: ${version}`);
 										message.channel.send({embed});
-										})
 									})
 								})
 							})
@@ -55,7 +51,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "whois",
+    name: "nricwhois",
     description: "View info on a user",
-    usage: "whois {user}"
+    usage: "nricwhois {user}"
 }
