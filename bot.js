@@ -11,8 +11,6 @@ const pass = process.env.PASSWORD;
 const version = process.env.VERSION;
 const logs = "521873059204825172";
 
-var time = process.uptime();
-
 // This keeps the bot running 24/7
 app.listen(process.env.PORT);
 setInterval(() => {
@@ -23,7 +21,7 @@ client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
 	client.user.setPresence({ game: { name: `V${version}`, type: 0} });
 	setInterval(() => {
-		client.user.setPresence({ game: { name: `${time} | V${version}`, type: 0} });
+		client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
 	}, 1);
 });
 
