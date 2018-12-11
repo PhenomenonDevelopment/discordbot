@@ -14,7 +14,7 @@ client.on("ready", () => {
 
 app.get("/", (request, response) => {
   console.log("Ping received!");
-  response.sendStatus(180);
+  response.sendStatus(200);
 });
 
 // This keeps the bot running 24/7
