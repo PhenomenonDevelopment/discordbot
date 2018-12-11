@@ -11,6 +11,13 @@ const pass = process.env.PASSWORD;
 const version = process.env.VERSION;
 const logs = "521873059204825172";
 
+let totalSeconds = (client.uptime / 1000);
+let hours = Math.floor(totalSeconds / 3600);
+totalSeconds %= 3600;
+let minutes = Math.floor(totalSeconds / 60);
+let seconds = totalSeconds % 60;
+let uptime = `${hours}:${minutes}:${seconds}`;
+
 app.get("/", (request, response) => {
   console.log("Ping received!");
   response.sendStatus(200);
@@ -24,7 +31,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
+	client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
