@@ -44,4 +44,18 @@ client.on("message", message => {
   }
 });
 
+var Connection = require('tedious').Connection;  
+var config = {  
+    userName: process.env.SQLUSER,  
+    password: process.env.SQLPASS,  
+    server: process.env.SQLHOST,
+	database: "d2f96qlf22nhsn";
+	port: `5432`,
+    options: {encrypt: true}  
+};  
+var connection = new Connection(config);  
+connection.on('connect', function(err) {  
+	client.channels.get(`${logs}`).send(`SQL Connection Success.`);
+});  
+
 client.login(discord_token);
