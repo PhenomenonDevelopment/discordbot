@@ -19,7 +19,7 @@ app.get("/", (request, response) => {
 // This keeps the bot running 24/7
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`https://phantomdevelopment-discord-bot.herokuapp.com/`);
+  http.get(`http://phantomdevelopment-discord-bot.herokuapp.com/`);
 }, 280000);
 
 client.on("ready", () => {
