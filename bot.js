@@ -7,11 +7,9 @@ const app = express();
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
+const pass = process.env.PASSWORD;
 const version = "0.0.02a";
-
-client.on("ready", () => {
-  console.log("Connected!");
-});
+const logs = "521873059204825172";
 
 app.get("/", (request, response) => {
   console.log("Ping received!");
@@ -26,6 +24,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
+	client.channels.get(`${logs}`).send(`Starting up....`);
 });
 
 client.on("message", message => {
