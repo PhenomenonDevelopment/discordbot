@@ -13,24 +13,6 @@ const logs = "521873059204825172";
 
 var time = process.uptime();
 
-function dhm(ms) {
-days = Math.floor(ms / (24 * 60 * 60 * 1000));
-daysms = ms % (24 * 60 * 60 * 1000);
-hours = Math.floor((daysms) / (60 * 60 * 1000));
-hoursms = ms % (60 * 60 * 1000);
-minutes = Math.floor((hoursms) / (60 * 1000));
-minutesms = ms % (60 * 1000);
-sec = Math.floor((minutesms) / (1000));
-return days + ":" + hours + ":" + minutes + ":" + sec;
-}
-
-const uptime = dhm(time)
-
-app.get("/", (request, response) => {
-  console.log("Ping received!");
-  response.sendStatus(200);
-});
-
 // This keeps the bot running 24/7
 app.listen(process.env.PORT);
 setInterval(() => {
@@ -41,7 +23,7 @@ client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
 	client.user.setPresence({ game: { name: `V${version}`, type: 0} });
 	setInterval(() => {
-		client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
+		client.user.setPresence({ game: { name: `${time} | V${version}`, type: 0} });
 	}, 1);
 });
 
