@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-	"tedious": "^3.0.1",
     "discord.js": "^11.3.2",
     "roblox-js": "^4.0.2",
     "express.js": "^1.0.0",
