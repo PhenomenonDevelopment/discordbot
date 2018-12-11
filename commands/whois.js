@@ -35,7 +35,6 @@ module.exports.run = async (client, message, args) => {
 										.addField("SOC:", `${SOC}`)
 										.addField("Medic:", `${medic}`)
 										.addField("Corrections:", `${corrections}`)
-										.addField("CRTO:", `${crto}`)
 										.addField("Profile:", `http://www.roblox.com/users/${id}`)
 										.setFooter(`Version: ${version}`);
 										message.channel.send({embed});
