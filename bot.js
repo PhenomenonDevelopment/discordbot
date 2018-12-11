@@ -39,14 +39,12 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
+	client.user.setPresence({ game: { name: `V${version}`, type: 0} });
 });
 
-function myFunc() {
+setInterval(() => {
   client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
-}
-
-setTimeout(myFunc, 60);
+}, 1);
 
 client.on("message", message => {
   if (message.author.bot) return;
