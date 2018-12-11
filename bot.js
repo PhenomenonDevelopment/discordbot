@@ -11,7 +11,6 @@ const pass = process.env.PASSWORD;
 const version = process.env.VERSION;
 const logs = "521873059204825172";
 
-// This keeps the bot running 24/7
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://phantomdevelopment-discord-bot.herokuapp.com/`);

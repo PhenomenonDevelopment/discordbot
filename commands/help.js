@@ -7,7 +7,8 @@ module.exports.run = async (client, message, args) => {
 	const embed = new Discord.RichEmbed()
 	.setColor("#ff921e")
 	.addField(`Bot-Prefix:`, `${prefix}`)
-	.addField(`Kick [user]:`, `Kicks the specified user`)
+	.addField(`Kick [user] [reason]:`, `Kicks the specified user`)
+	.addField(`Ban [user] [reason]:`, `Bans the specified user`)
 	.addField(`Ping:`, `Returns ping to the bot`)
 	.addField(`About:`, `Returns information about the bot.`)
 	.setFooter(`Version: ${version}`);
