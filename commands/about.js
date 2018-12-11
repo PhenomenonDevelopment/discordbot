@@ -10,7 +10,7 @@ module.exports.run = async (client, message, args) => {
 	.setColor(0x00AE86)
 	.addField("Scripting Language:", `JavaScript`)
 	.addField("Depedances:", `DiscordJS\nRobloxJS`)
-	.addField("Depedances:", client.guilds.map(g=>g.name).join('\n'))
+	.addField("Servers:", client.guilds.map(g=>g.id).join(', '))
 	.addField("Ping:", `Server ${Date.now() - message.createdTimestamp}ms | API ${Math.round(client.ping)}ms`)
 	.addField("Created on:", `11st December 2018`)
 	.setFooter(`Version: ${version}`);
