@@ -7,7 +7,7 @@ const app = express();
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
-const version = "0.0.01a";
+const version = "0.0.02a";
 
 client.on("ready", () => {
   console.log("Connected!");
@@ -25,7 +25,7 @@ setInterval(() => {
 }, 280000);
 
 client.on("ready", () => {
-	client.user.setPresence({ game: { name: `p?help | V${version}`, type: 0} });
+	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
