@@ -24,6 +24,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
+	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
