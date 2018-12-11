@@ -51,7 +51,7 @@ module.exports.run = async (client, message, args) => {
 			} else {
 				message.channel.send("Please enter a username.")
 		}
-	return;}
+	return;
 }
 
 module.exports.help = {
