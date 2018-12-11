@@ -9,7 +9,7 @@ const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 const pass = process.env.PASSWORD;
 const version = "0.0.03a";
-const logs = "521873059204825172";
+const logs = process.env.VERSION;
 
 app.get("/", (request, response) => {
   console.log("Ping received!");
@@ -23,14 +23,6 @@ setInterval(() => {
 }, 280000);
 
 client.on("ready", () => {
-	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
-	client.channels.get(`${logs}`).send(`Starting up....`);
-	const embed = new Discord.RichEmbed()
-	.setAuthor("Developer: aj2958#7948", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
-	.setColor(0x00AE86)
-	.addField("Created on:", `11st December 2018`)
-	.setFooter(`Version: ${version}`, "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6");
-	client.channels.get(`${logs}`).send({embed});
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
 });
 
