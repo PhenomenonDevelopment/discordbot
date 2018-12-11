@@ -24,7 +24,6 @@ client.on("ready", () => {
 
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.guild.id !== 521374917313429505) return;
   if (message.content.indexOf(prefix) !== 0) return;
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
