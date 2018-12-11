@@ -49,7 +49,7 @@ var config = {
     userName: process.env.SQLUSER,  
     password: process.env.SQLPASS,  
     server: process.env.SQLHOST,
-	database: "d2f96qlf22nhsn";
+	database: "d2f96qlf22nhsn",
 	port: `5432`,
     options: {encrypt: true}  
 };  
