@@ -46,7 +46,7 @@ function myFunc() {
   client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
 }
 
-setTimeout(myFunc, 5);
+setTimeout(myFunc, 60);
 
 client.on("message", message => {
   if (message.author.bot) return;
