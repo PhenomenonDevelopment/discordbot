@@ -4,6 +4,7 @@ var roblox = require('roblox-js');
 
 module.exports.run = async (client, message, args) => {
 	if (message.author.id !== '501649887411175435') return
+	var args = message.content.split(/[ ]+/)
 	var username = args[1]
 	if (username){
     	message.channel.send(`Checking ROBLOX for ${username}`)
