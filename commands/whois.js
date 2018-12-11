@@ -1,6 +1,8 @@
 const Discord = module.require("discord.js");
 const client = new Discord.Client();
 var roblox = require('roblox-js');
+var groupId = '3818655'
+const version = process.env.VERSION;
 
 module.exports.run = async (client, message, args) => {
 	if (message.author.id !== '501649887411175435') return
@@ -25,7 +27,6 @@ module.exports.run = async (client, message, args) => {
 										roblox.getRankNameInGroup('3547119', id)
 										.then(function(crto){
 										const embed = new Discord.RichEmbed()
-										.setAuthor("NRIC Automated Systems", "https://t1.rbxcdn.com/bcf81a98dcfa6571b4b2ad09e3824c62")
 										.setColor(0x00AE86)
 										.addField("Username:", `${username}`)
 										.addField("NRIC:", `${rank}`)
@@ -36,7 +37,7 @@ module.exports.run = async (client, message, args) => {
 										.addField("Corrections:", `${corrections}`)
 										.addField("CRTO:", `${crto}`)
 										.addField("Profile:", `http://www.roblox.com/users/${id}`)
-										.setFooter(`Version: ${ver} | ${phase}`, "https://t5.rbxcdn.com/f8832ec3c74c163a525741f7aa171505");
+										.setFooter(`Version: ${version}`);
 										message.channel.send({embed});
 										})
 									})
