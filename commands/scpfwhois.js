@@ -82,21 +82,8 @@ module.exports.run = async (client, message, args) => {
 	return;
 }
 
-									const embed = new Discord.RichEmbed()
-										.setColor(0x00AE86)
-										.addField("Username:", `${username}`)
-										.addField("SCPF:", `${rank}`)
-										.addField("CH:", `${comb}`)
-										.addField("IA:", `${mp}`)
-										.addField("TRS:", `${SOC}`)
-										.addField("MTF:", `${medic}`)
-										.addField("SCD:", `${corrections}`)
-										.addField("Profile:", `http://www.roblox.com/users/${id}`)
-										.setFooter(`Version: ${version}`);
-										message.channel.send({embed});
-
 module.exports.help = {
-    name: "nricwhois",
+    name: "scpfwhois",
     description: "View info on a user",
-    usage: "nricwhois {user}"
+    usage: "scpfwhois {user}"
 }
