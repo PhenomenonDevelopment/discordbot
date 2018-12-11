@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
 	.addField("Ping:", `${Date.now() - message.createdTimestamp}ms`)
 	.addField("Created on:", `11st December 2018`)
 	.setFooter(`Version: ${version}`);
-	client.channels.get(`${logs}`).send({embed});
+	message.channel.send({embed});
 }
 
 module.exports.help = {
