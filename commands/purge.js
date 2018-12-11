@@ -1,6 +1,8 @@
 const Discord = module.require("discord.js");
 
 module.exports.run = async (client, message, args) => {
+	if(!message.member.roles.some(r=>["Developer"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
     const deleteCount = parseInt(args[0], 10);
 	
     if(!deleteCount || deleteCount < 2 || deleteCount > 1000)
