@@ -24,6 +24,8 @@ sec = Math.floor((minutesms) / (1000));
 return days + ":" + hours + ":" + minutes + ":" + sec;
 }
 
+const uptime = dhm(time)
+
 app.get("/", (request, response) => {
   console.log("Ping received!");
   response.sendStatus(200);
@@ -37,7 +39,7 @@ setInterval(() => {
 
 client.on("ready", () => {
 	client.channels.get(`${logs}`).send(`Bot Successfully Started.`);
-	client.user.setPresence({ game: { name: `dhm(time) | V${version}`, type: 0} });
+	client.user.setPresence({ game: { name: `${uptime} | V${version}`, type: 0} });
 });
 
 client.on("message", message => {
