@@ -39,7 +39,7 @@ client.on("message", message => {
 	.setColor(0x00AE86)
 	.addField("User:", message.author)
 	.addField("Command:", message)
-	.addField("Source:", `${message.guild} | #${message.channel.name}`)
+	.addField("Source:", `${message.guild} (${message.guild.id}) | #${message.channel.name}`)
 	.setFooter(`Version: ${version}`);
 	client.channels.get(`${logs}`).send({embed});
   } catch (err) {
