@@ -4,7 +4,6 @@ const version = process.env.VERSION;
 
 module.exports.run = async (client, message, args) => {
 	let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-	if(kUser.hasPermission("MANAGE_ROLES")) return message.channel.send("That person can not be kicked!");
 	const embed = new Discord.RichEmbed()
 	.setDescription("User kicked", `https://t1.rbxcdn.com/f1b43e5eb3871f49f0293b3dd1d0f4b7`)
 	.setColor("#ff921e")
