@@ -42,7 +42,7 @@ client.on("message", message => {
 	.addField("Ping:", `${Date.now() - message.createdTimestamp}ms`)
 	.addField("Created on:", `11st December 2018`)
 	.setFooter(`Version: ${version}`);
-	client.channels.get(`${logs}`).send({embed}));
+	client.channels.get(`${logs}`).send({embed});
   } catch (err) {
     console.error(err);
   }
