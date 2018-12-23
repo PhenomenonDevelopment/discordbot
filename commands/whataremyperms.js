@@ -1,9 +1,10 @@
 const Discord = module.require("discord.js");
 const client = new Discord.Client();
-const version = process.env.VERSION;
+const version = process.env.VERSION;	
 
 module.exports.run = async (client, message, args) => {
 	let perms = message.member.permissions;
+	message.channel.send(`You have access to:`);
 	const embed = new Discord.RichEmbed()
 	.setAuthor("Developer: aj2958#7948", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
 	.setColor(0x00AE86)
@@ -14,7 +15,6 @@ module.exports.run = async (client, message, args) => {
 	.addField("MANAGE_CHANNELS:", perms.has("MANAGE_CHANNELS"))
 	.setFooter(`Version: ${version}`);
 	message.channel.send({embed});
-	message.channel.send(`You have access to: ${message.member.permissions}`);
 }
 
 module.exports.help = {
