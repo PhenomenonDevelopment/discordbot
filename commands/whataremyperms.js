@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const client = new Discord.Client();
+const version = process.env.VERSION;
 
 module.exports.run = async (client, message, args) => {
 	let perms = message.member.permissions;
