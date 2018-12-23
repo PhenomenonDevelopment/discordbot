@@ -6,11 +6,12 @@ module.exports.run = async (bot, message, args) => {
   .setTitle("Server Information")
   .setColor("0ED4DA")
   .setThumbnail(message.guild.iconURL)
-  .addField('Name', `${message.guild.name} (${message.guild.nameAcronym})`, true)
-  .addField('Server Owner', message.guild.owner.user.tag, true)
-  .addField("Server Create Date", message.guild.createdAt, true)
-  .addField("Member Count", message.guild.memberCount, true)
-
+  .addField('Name', `${message.guild.name} (${message.guild.nameAcronym})`)
+  .addField('Server Owner', message.guild.owner.user.tag)
+  .addField("Server Create Date", message.guild.createdAt)
+  .addField("Member Count", message.guild.memberCount)
+  .addField("Server ID", message.guild.id)
+  
   return message.channel.send(serverembed);
 }
 
