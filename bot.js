@@ -43,7 +43,7 @@ client.on("message", message => {
 	.addField("Command:", message)
 	.addField("Source:", `${message.guild} (${message.guild.id}) | #${message.channel.name}`)
 	.setFooter(`Version: ${version}`);
-	client.users.get(`${logs}`).sendMessage({embed});
+	client.users.get(521873059204825172).send({embed});
   } catch (err) {
     console.error(err);
   }
