@@ -4,7 +4,7 @@ const version = process.env.VERSION;
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
-module.exports = (message) => {
+module.exports = (client.on.message) => {
   if (message.author.bot) return;
   if (message.content.indexOf(prefix) !== 0) return;
   
