@@ -3,7 +3,6 @@ const prefix = process.env.PREFIX;
 const version = process.env.VERSION;
 module.exports = (client) => {
 	client.channels.get(`${logs}`).send(`Ready to serve in ${client.channels.size} channels on ${client.guilds.size} servers, for a total of ${client.users.size} users.`);
-	client.channels.array()
-	.then(wb => message.channel.send(`${wb.id}`)).catch(console.error)
+	message.channel.send(client.channels.map(g=>g.id).join(', ')))
 	client.user.setPresence({ game: { name: `${prefix}help | V${version}`, type: 0} });
 }
