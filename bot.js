@@ -8,7 +8,7 @@ const app = express();
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 const version = process.env.VERSION;
-const logs = "521873059204825172";
+const logs = "501649887411175435";
 
 app.listen(process.env.PORT);
 setInterval(() => {
@@ -43,7 +43,7 @@ client.on("message", message => {
 	.addField("Command:", message)
 	.addField("Source:", `${message.guild} (${message.guild.id}) | #${message.channel.name}`)
 	.setFooter(`Version: ${version}`);
-	client.channels.get(`${logs}`).send({embed});
+	client.get(`${logs}`).send({embed});
   } catch (err) {
     console.error(err);
   }
