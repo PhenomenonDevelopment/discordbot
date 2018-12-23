@@ -12,8 +12,8 @@ const version = process.env.VERSION;
 
 const Sharder = require('eris-sharder').Master;
 const sharder = new Sharder(`${discord_token}`, "/bot.js", {
-  stats: true,
-  debug: true,
+  stats: false,
+  debug: false,
   guildsPerShard: "1500",
   name: "Phenomenon",
   webhooks: {
