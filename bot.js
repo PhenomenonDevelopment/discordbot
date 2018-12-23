@@ -11,7 +11,7 @@ const logs = "521873059204825172";
 const version = process.env.VERSION;
 
 const Sharder = require('eris-sharder').Master;
-const sharder = new Sharder(`${discord_token}`, "/bot.js", {
+const sharder = new Sharder(`${discord_token}`, "./bot.js", {
   stats: false,
   debug: false,
   guildsPerShard: "1500",
