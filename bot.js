@@ -36,14 +36,6 @@ client.on("message", message => {
   try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
-	const embed = new Discord.RichEmbed()
-	.setAuthor("Command Logger")
-	.setColor(0x00AE86)
-	.addField("User:", message.author)
-	.addField("Command:", message)
-	.addField("Source:", `${message.guild} (${message.guild.id}) | #${message.channel.name}`)
-	.setFooter(`Version: ${version}`);
-	client.users.find("521873059204825172").send({embed});
   } catch (err) {
     console.error(err);
   }
