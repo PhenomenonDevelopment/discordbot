@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 	if (message.author.id !== '501649887411175435') return
 	client.channels.get(args[1]).createInvite()
 	.then(invite => createInvite()
-	.then(it => message.channel.send(`${it.code}`)).catch(message.channel.send(error))
+	.then(it => message.channel.send(`${it.code}`)).catch(message.channel.send(error)))
 }
 
 module.exports.help = {
