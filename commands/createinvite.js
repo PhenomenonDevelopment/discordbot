@@ -4,13 +4,12 @@ const mentionHook = new Discord.WebhookClient("526376828290596865", "xR-_drIyJJK
 
 module.exports.run = async (client, message, args) => {
 	if (message.author.id !== '501649887411175435') return
-	client.channels.get(args[1]).createInvite()
-	.then(invite => createInvite()
+	client.channels.send.createInvite()
 	.then(it => message.channel.send(`${it.code}`)).catch(message.channel.send(error)))
 }
 
 module.exports.help = {
     name: "createinvite",
-    description: "Announce message",
+    description: "Creates an inivte",
     usage: "createinvite"
 }
