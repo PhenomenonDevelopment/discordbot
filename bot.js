@@ -45,16 +45,7 @@ client.on("message", message => {
 	.setFooter(`Version: ${version}`);
 	client.channels.get(`${logs}`).send({embed});
   } catch (err) {
-    let commandFile = require(`./commands/${command}.js`);
-    commandFile.run(client, message, args);
-	const embed = new Discord.RichEmbed()
-	.setAuthor("Command Logger (ERROR)")
-	.setColor(0x00AE86)
-	.addField("User:", message.author)
-	.addField("Command:", err)
-	.addField("Source:", `${message.guild} (${message.guild.id}) | #${message.channel.name}`)
-	.setFooter(`Version: ${version}`);
-	client.channels.get(`${logs}`).send({embed});
+    console.error(err);
   }
 }); 
 
