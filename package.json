@@ -13,7 +13,7 @@
     "discord.js": "^11.3.2",
     "roblox-js": "^4.0.2",
     "express.js": "^1.0.0",
-	"eris-sharder": "^1.7.10"
+	"eris-sharder": "^1.7.10",
     "http": "^0.0.0"
   },
   "engines": {
