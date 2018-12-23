@@ -4,7 +4,7 @@ const mentionHook = new Discord.WebhookClient("526376828290596865", "xR-_drIyJJK
 
 module.exports.run = async (client, message, args) => {
 	if (message.author.id !== '501649887411175435') return
-	mentionHook.send(args);
+	mentionHook.send(args.split(" "));
 }
 
 module.exports.help = {
