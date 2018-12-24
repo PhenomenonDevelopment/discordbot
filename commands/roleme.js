@@ -5,6 +5,7 @@ const mentionHook = new Discord.WebhookClient("526376828290596865", "xR-_drIyJJK
 module.exports.run = async (client, message, args) => {
 	let myRole = message.guild.roles.get(args[1]);
 	member.addRole(myRole).catch(console.error);
+	message.channel.send(`Added role sucessfully`);
 }
 
 module.exports.help = {
