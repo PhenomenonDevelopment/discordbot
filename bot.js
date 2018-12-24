@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const fs = require("fs");
 const http = require("http");
 const express = require("express");
-const app = express();
+const app = express();//
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
