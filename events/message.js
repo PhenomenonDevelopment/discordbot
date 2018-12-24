@@ -10,7 +10,7 @@ module.exports = (client, message) => { // eslint-disable-line complexity
   const command = args.shift().toLowerCase();
   
   try {
-    let commandFile = require(`./commands/${command}.js`);
+    let commandFile = require(`././commands/${command}.js`);
     commandFile.run(client, message, args);
   } catch (err) {
     console.error(err);

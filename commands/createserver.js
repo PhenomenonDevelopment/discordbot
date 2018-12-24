@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args) => {
 }
 
 module.exports.help = {
-    name: "createinvite",
+    name: "createserver",
     description: "Announce message",
-    usage: "createinvite"
+    usage: "createserver"
 }
