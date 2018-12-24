@@ -33,7 +33,7 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
   
   try {
-    let commandFile = require(`././commands/${command}.js`);
+    let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
   } catch (err) {
     console.error(err);
