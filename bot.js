@@ -12,7 +12,7 @@ const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://phantomdevelopment-discord-bot.herokuapp.com/`);
+  http.get(`http://phenomenon-discord-bot.herokuapp.com/`);
 }, 280000);
 
 fs.readdir("./events/", (err, files) => {
