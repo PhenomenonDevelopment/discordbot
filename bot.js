@@ -10,9 +10,6 @@ const prefix = process.env.PREFIX;
 const logs = "521873059204825172";
 const version = process.env.VERSION;
 
-const levels = require("./levels.json");
-typeof levels; // object
-
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://phenomenon-discord-bot.herokuapp.com/`);
@@ -34,14 +31,6 @@ client.on("message", message => {
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-
-  if(!levels[message.author.tag]){ 
-	levels[message.author.id] = { 
-		money: 0 
-	};
-  }
-  levels[message.author.tag].money += 25;
-  fs.writeFileSync("./levels.json", JSON.stringify(levels));
   
   try {
     let commandFile = require(`./commands/${command}.js`);
