@@ -40,7 +40,7 @@ client.on("message", async message => {
 	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
 	  .setColor(0x00AE86)
 	  .addField("Command:", `${command}`)
-	  .addField("Args:",`${args}`)
+	  .addField("Args:",`${args} `)
 	  .addField("Server:", `${message.guild.name}`)
 	  .addField("Channel:", `${message.channel.name}`)
 	  .setFooter(`Version: ${version}`);
