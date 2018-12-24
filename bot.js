@@ -42,8 +42,9 @@ client.on("message", async message => {
 	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
 	  .setColor(0x00AE86)
 	  .addField("Command:", `${message}`)
+	  .addField("Server:", `${message.guild}`)
 	  .setFooter(`Version: ${version}`);
-    message.channel.send({embed});
+    client.channels.get(modlogs).send({embed});
   } catch (err) {
     console.error(err);
   }
