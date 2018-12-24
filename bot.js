@@ -8,6 +8,7 @@ const app = express();//
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 const logs = "521873059204825172";
+const modlogs = "521885446876299265";
 const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
@@ -32,9 +33,17 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
+  
+  
   try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
+	const embed = new Discord.RichEmbed()
+	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
+	  .setColor(0x00AE86)
+	  .addField("Command:", `${message}`)
+	  .setFooter(`Version: ${version}`);
+    message.channel.send({embed});
   } catch (err) {
     console.error(err);
   }
