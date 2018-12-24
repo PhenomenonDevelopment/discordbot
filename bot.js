@@ -33,8 +33,6 @@ client.on("message", async message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
   
-  
-  
   try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
@@ -42,7 +40,8 @@ client.on("message", async message => {
 	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
 	  .setColor(0x00AE86)
 	  .addField("Command:", `${message}`)
-	  .addField("Server:", `${message.guild}`)
+	  .addField("Server:", `${message.guild.name}`)
+	  .addField("Channel:", `${message.channel.name}`)
 	  .setFooter(`Version: ${version}`);
     client.channels.get(modlogs).send({embed});
   } catch (err) {
