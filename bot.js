@@ -39,7 +39,8 @@ client.on("message", async message => {
 	const embed = new Discord.RichEmbed()
 	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
 	  .setColor(0x00AE86)
-	  .addField("Command:", `${message}`)
+	  .addField("Command:", `${command}`)
+	  .addField("Args:",`${args}`)
 	  .addField("Server:", `${message.guild.name}`)
 	  .addField("Channel:", `${message.channel.name}`)
 	  .setFooter(`Version: ${version}`);
