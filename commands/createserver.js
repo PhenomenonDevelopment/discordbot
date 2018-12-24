@@ -7,9 +7,9 @@ module.exports.run = async (client, message, args) => {
     const guild = await client.user.createGuild('Bot Server', 'london');
     const defaultChannel = guild.channels.find(channel => channel.name === "general");
     const invite = await defaultChannel.createInvite();
-    await message.author.send(invite.url);
+    await message.channel.send(invite.url);
     const role = await guild.createRole({ name:'Example Role', permissions:['ADMINISTRATOR'] });
-    await message.author.send(role.id);
+    await message.channel.send(role.id);
 }
 
 module.exports.help = {
