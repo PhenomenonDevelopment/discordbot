@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const client = new Discord.Client();
+var mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
