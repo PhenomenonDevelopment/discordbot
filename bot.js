@@ -16,6 +16,15 @@ setInterval(() => {
 http.get(`${process.env.HOST}`);
 }, 280000);
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
+  user: "lzpf45xmkds90fhi",
+  password: process.env.DBP,
+  database: "krntwx8gh9aecxvw"
+});
+
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -29,6 +38,17 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
+	if(err) return console.error(err);
+	let sql;
+	if(rows.length <1) {
+	  sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
+	} else {
+	  let xp = rows[0].xp;
+	  sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
+	}
+	con.query(sql, console.log);
+  });
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
