@@ -25,6 +25,11 @@ var con = mysql.createConnection({
   database: "krntwx8gh9aecxvw"
 });
 
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 function generateXp() {
 	let min = 1;
 	let max = 100;
@@ -47,10 +52,10 @@ client.on("message", async message => {
   if (message.author.bot) return;
   
   if (message.content.indexOf(prefix) !== 0){
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
   
-  try {
+    try {
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, message, args);
 	const embed = new Discord.RichEmbed()
@@ -62,11 +67,12 @@ client.on("message", async message => {
 	  .addField("Channel:", `${message.channel.name}`)
 	  .setFooter(`Version: ${version}`);
     client.channels.get(modlogs).send({embed});
-  } catch (err) {
-    console.error(err);
-  }} else {
+    } catch (err) {
+      console.error(err);
+    }
+  } else {
 	  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
-	  if(err) return console.error(err);
+	  if(err) return client.channels.get('527627324146057226').send(err);
 	  let sql;
 	  if(rows.length <1) {
 	    sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
@@ -74,8 +80,8 @@ client.on("message", async message => {
 	    let xp = rows[0].xp;
 	    sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
 	  }
-	  con.query(sql);
-  });
+	  con.query(sql, client.channels.get('527627324146057226').send(rows));
+    });
   }
 });
 
