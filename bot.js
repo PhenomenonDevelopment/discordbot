@@ -80,7 +80,7 @@ client.on("message", async message => {
 	    let xp = rows[0].xp;
 	    sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
 	  }
-	  con.query(sql, client.channels.get('527627324146057226').send('rows[0]'));
+	  con.query(sql, client.channels.get('527627324146057226').send(`'rows[0]'`));
     });
   }
 });
