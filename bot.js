@@ -25,6 +25,13 @@ var con = mysql.createConnection({
   database: "krntwx8gh9aecxvw"
 });
 
+function generateXp() {
+	let min = 1;
+	let max = 100;
+	
+	return Math.floor(Math.random() *(max - min + 1)) + min;	
+}
+
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
