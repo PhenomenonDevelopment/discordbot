@@ -62,24 +62,24 @@ client.on("message", async message => {
   con.query(sql, console.log);
   
   if (message.content.indexOf(prefix) !== 0) return;
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
   
-    try {
-    let commandFile = require(`./commands/${command}.js`);
-    commandFile.run(client, message, args);
-	const embed = new Discord.RichEmbed()
-	  .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
-	  .setColor(0x00AE86)
-	  .addField("Command:", `*${command}*`)
-	  .addField("Args:",`*${args}*`)
-	  .addField("Server:", `${message.guild.name}`)
-	  .addField("Channel:", `${message.channel.name}`)
-	  .setFooter(`Version: ${version}`);
-    client.channels.get(modlogs).send({embed});
-    } catch (err) {
-      console.error(err);
-    }
+  try {
+  let commandFile = require(`./commands/${command}.js`);
+  commandFile.run(client, message, args);
+  const embed = new Discord.RichEmbed()
+    .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
+    .setColor(0x00AE86)
+    .addField("Command:", `*${command}*`)
+    .addField("Args:",`*${args}*`)
+    .addField("Server:", `${message.guild.name}`)
+    .addField("Channel:", `${message.channel.name}`)
+    .setFooter(`Version: ${version}`);
+  client.channels.get(modlogs).send({embed});
+  } catch (err) {
+    console.error(err);
+  };
 });
 
 client.login(discord_token);
