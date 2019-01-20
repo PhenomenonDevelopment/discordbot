@@ -16,15 +16,6 @@ setInterval(() => {
 http.get(`${process.env.HOST}`);
 }, 280000);
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "uf63wl4z2daq9dbb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com",
-  user: "lzpf45xmkds90fhi",
-  password: process.env.DBP,
-  database: "krntwx8gh9aecxvw"
-});
-
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
@@ -80,6 +71,6 @@ client.on("message", async message => {
   } catch (err) {
     console.error(err);
   };
-});
+})
 
 client.login(discord_token);
