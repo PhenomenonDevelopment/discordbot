@@ -53,12 +53,12 @@ client.on("message", async message => {
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
 	  if(err) return client.channels.get('527627324146057226').send(err);
 	  let sql;
-	  if(rows.length <1) {
+  if(rows.length <1) {
 	    sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
-	  } else {
+  } else {
 	    let xp = rows[0].xp;
 	    sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-	  }
+  };
   con.query(sql, console.log);
   
   if (message.content.indexOf(prefix) !== 0) return;
