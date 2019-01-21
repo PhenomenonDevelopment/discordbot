@@ -37,7 +37,7 @@ client.on("message", async message => {
     commandFile.run(client, message, args);
   } catch (err) {
     console.error(err);
-    message.channel.send('Unfortunatley an error occurred ```${err}```')
+    message.channel.send('Unfortunatley an error occurred ```'..err..'```')
   };
 })
 
