@@ -7,8 +7,6 @@ const app = express();//
 
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
-const logs = "521873059204825172";
-const modlogs = "521885446876299265";
 const version = process.env.VERSION;
 
 app.listen(process.env.PORT);
@@ -36,9 +34,10 @@ client.on("message", async message => {
 
   try {
   let commandFile = require(`./commands/${command}.js`);
-  commandFile.run(client, message, args);
+    commandFile.run(client, message, args);
   } catch (err) {
     console.error(err);
+    message.channel.send('Unfortunatley an error occurred ```${err}```')
   };
 })
 
