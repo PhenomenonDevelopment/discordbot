@@ -16,11 +16,6 @@ setInterval(() => {
 http.get(`${process.env.HOST}`);
 }, 280000);
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
-
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
