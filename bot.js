@@ -21,13 +21,6 @@ con.connect(function(err) {
   console.log("Connected!");
 });
 
-function generateXp() {
-	let min = 1;
-	let max = 100;
-	
-	return Math.floor(Math.random() *(max - min + 1)) + min;	
-}
-
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -41,33 +34,14 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", async message => {
   if (message.author.bot) return;
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err,rows) => {
-	  if(err) return client.channels.get('527627324146057226').send(err);
-	  let sql;
-  if(rows.length <1) {
-	    sql = `INSERT INTO xp (id,xp) VALUES('${message.author.id}', ${generateXp()})`
-  } else {
-	    let xp = rows[0].xp;
-	    sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-  };
-  con.query(sql, console.log);
-  
+
   if (message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  
+
   try {
   let commandFile = require(`./commands/${command}.js`);
   commandFile.run(client, message, args);
-  const embed = new Discord.RichEmbed()
-    .setAuthor("Command Logger", "https://t0.rbxcdn.com/e25a771f37859b7c227944230596bae6")
-    .setColor(0x00AE86)
-    .addField("Command:", `*${command}*`)
-    .addField("Args:",`*${args}*`)
-    .addField("Server:", `${message.guild.name}`)
-    .addField("Channel:", `${message.channel.name}`)
-    .setFooter(`Version: ${version}`);
-  client.channels.get(modlogs).send({embed});
   } catch (err) {
     console.error(err);
   };
