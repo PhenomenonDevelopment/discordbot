@@ -8,7 +8,7 @@ const app = express();//
 const discord_token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 const version = process.env.VERSION;
-const version = process.env.COOKIE;
+const cookie = process.env.COOKIE;
 
 app.listen(process.env.PORT);
 setInterval(() => {
@@ -17,7 +17,7 @@ http.get(`${process.env.HOST}`);
 
 const rbx = require("noblox.js")
 async function startApp () {
-    await rbx.cookieLogin("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_F9F1EA531adk")
+    await rbx.cookieLogin('${cookie}')
     // Do everything else, calling functions and the like.
     let currentUser = await rbx.getCurrentUser()
 }
