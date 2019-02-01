@@ -4,7 +4,7 @@ var groupId = 3503317;
 var maximumRank = 20;
 
 module.exports.run = async (client, message, args) => {
-  var username = args[1]
+  var username = args[0]
         if (username){
           message.channel.send(`Checking ROBLOX for ${username}`)
           rbx.getIdFromUsername(username)
