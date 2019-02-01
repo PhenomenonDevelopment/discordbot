@@ -12,7 +12,7 @@ const cookie = process.env.COOKIE;
 
 app.listen(process.env.PORT);
 setInterval(() => {
-http.get(`${process.env.HOST}`);
+  http.get(`${process.env.HOST}`);
 }, 280000);
 
 const rbx = require("noblox.js")
@@ -22,21 +22,6 @@ async function startApp () {
     let currentUser = await rbx.getCurrentUser()
 }
 
-var blacklist = [1, 261]
-var evt = rbx.onJoinRequestHandle(18)
-evt.on('data', function (request) {
-  rbx.getIdFromUsername(request.username).then(function (id) {
-    for (var i = 0; i < blacklist.length; i++) {
-      if (blacklist[i] === id) {
-        evt.emit('handle', request, false);
-        return;
-      }
-    }
-    evt.emit('handle', request, true, function () {
-      rbx.message(id, 'Welcome', 'Welcome to my group');
-    });
-  });
-});
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
