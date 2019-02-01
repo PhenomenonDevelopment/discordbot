@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const rbx = module.require("noblox.js")
+const rbx = require("noblox.js")
 var groupId = 3503317;
 var maximumRank = 20;
 
